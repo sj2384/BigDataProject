@@ -8,7 +8,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 
 for entry in reader:
-    #if len(entry) == 22:
+
     PD_DESC = str(entry[9])
     if PD_DESC == '' or PD_DESC is None or PD_DESC == 'N/A':
         label = 'NULL'

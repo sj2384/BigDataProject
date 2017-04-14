@@ -8,8 +8,9 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 
 for entry in reader:
-    #if len(entry) == 22:
+
     KY_CD = str(entry[6])
+    # Check whether this is a three-digit code
     if len(KY_CD) == 3:
         label = 'VALID'
     elif KY_CD == '' or KY_CD is None:

@@ -6,14 +6,18 @@ from utils import get_type
 reader = csv.reader(sys.stdin)
 # Skip first row
 next(reader, None)
-#valid_list = ['BRONX','BROOKLYN','MANHATTAN','QUEENS','STATEN ISLAND']
+
 for entry in reader:
-    #if len(entry) == 22:
+
     Longitude = str(entry[22])
-    if Longitude == '' or Longitude is None:#in valid_list:
+    if Longitude == '' or Longitude is None:
         label = 'NULL'
         Longitude = 'NULL'
     else:
-        label = 'VALID'
+        # Based on boxplot, we consider values in the following range as valid ones
+        if -float(Longitude) >= 73.751233647000006 and -float(Longitude) <= 74.106266945000002:
+            label = 'VALID'
+        else:
+            label = 'INVALID'
     print('%s\t%s,longitude,%s' % (Longitude, get_type(Longitude), label))
     

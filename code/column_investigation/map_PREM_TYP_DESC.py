@@ -8,7 +8,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 
 for entry in reader:
-    #if len(entry) == 22:
+    
     PREM_TYP_DESC = str(entry[16])
     if PREM_TYP_DESC == '' or PREM_TYP_DESC is None or PREM_TYP_DESC == 'N/A':
         label = 'NULL'

@@ -8,7 +8,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 
 for entry in reader:
-    #if len(entry) == 22:
+
     HADEVELOPT = str(entry[18])
     if HADEVELOPT == '' or HADEVELOPT is None or HADEVELOPT == 'N/A':
         label = 'NULL'

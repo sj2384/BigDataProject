@@ -6373,5 +6373,6 @@ NULL	655,value
 datetime	5100567,dtype
 string	655,dtype
 date	5101222,stype
+INVALID	18782,label
 NULL	655,label
-VALID	5100567,label
+VALID	5081785,label

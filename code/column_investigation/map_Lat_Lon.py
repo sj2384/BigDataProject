@@ -6,14 +6,21 @@ from utils import get_type
 reader = csv.reader(sys.stdin)
 # Skip first row
 next(reader, None)
-#valid_list = ['BRONX','BROOKLYN','MANHATTAN','QUEENS','STATEN ISLAND']
+
 for entry in reader:
-    #if len(entry) == 22:
+
     Lat_Lon = str(entry[23])
-    if Lat_Lon == '' or Lat_Lon is None:#in valid_list:
+    
+    if Lat_Lon == '' or Lat_Lon is None:
         label = 'NULL'
         Lat_Lon = 'NULL'
     else:
-        label = 'VALID'
+        # Check whether value pairs are corresponding correctly to original values
+        Latitude = str(entry[21])
+        Longitude = str(entry[22])
+        if Lat_Lon.split(',')[0][1:] == Latitude and Lat_Lon.split(',')[1][1:-1] == Longitude:
+            label = 'VALID'
+        else:
+            label = 'INVALID'
     print('%s\t%s,coordinate,%s' % (Lat_Lon, get_type(Lat_Lon), label))
     

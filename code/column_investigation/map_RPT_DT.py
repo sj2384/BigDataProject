@@ -9,7 +9,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 
 for entry in reader:
-    #if len(entry) == 22:
+
     RPT_DT = str(entry[5])
 
     if RPT_DT == '' or RPT_DT is None:
@@ -17,8 +17,14 @@ for entry in reader:
         RPT_DT = 'NULL'
     else:
         try:
-            datetime.datetime.strptime(RPT_DT, '%m/%d/%Y')
-            label = 'VALID'
+            # define upper bound and lower bound to exclude outliers
+            dt = datetime.datetime.strptime(RPT_DT, '%m/%d/%Y')
+            lb = datetime.datetime.strptime('01/01/2006', '%m/%d/%Y')
+            ub = datetime.datetime.strptime('12/31/2015', '%m/%d/%Y')
+            if dt > ub or dt < lb:
+                label = 'INVALID'
+            else:
+                label = 'VALID'
         except ValueError:
             label = 'INVALID'
 

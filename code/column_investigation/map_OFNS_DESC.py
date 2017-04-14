@@ -8,7 +8,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 
 for entry in reader:
-    #if len(entry) == 22:
+
     OFNS_DESC = str(entry[7])
     if OFNS_DESC == '' or OFNS_DESC is None or OFNS_DESC == 'N/A':
         label = 'NULL'

@@ -8,7 +8,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 valid_list = ['FELONY','MISDEMEANOR','VIOLATION']
 for entry in reader:
-    #if len(entry) == 22:
+# All possible pre-defined values
     LAW_CAT_CD = str(entry[11])
     if LAW_CAT_CD in valid_list:
         label = 'VALID'
