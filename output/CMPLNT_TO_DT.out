@@ -4829,5 +4829,6 @@ NULL	1391476,value
 datetime	3709746,dtype
 string	1391476,dtype
 date	5101222,stype
+INVALID	4887,label
 NULL	1391476,label
-VALID	3709746,label
+VALID	3704859,label

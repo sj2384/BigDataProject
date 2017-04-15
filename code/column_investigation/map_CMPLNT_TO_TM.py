@@ -9,7 +9,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 
 for entry in reader:
-    #if len(entry) == 22:
+
     CMPLNT_TO_TM = str(entry[4])
 
     if CMPLNT_TO_TM == '' or CMPLNT_TO_TM is None:
@@ -17,6 +17,7 @@ for entry in reader:
         CMPLNT_TO_TM = 'NULL'
     else:
         try:
+            # If the transformation fails, then it is invalid
             datetime.datetime.strptime(CMPLNT_TO_TM, '%H:%M:%S')
             label = 'VALID'
         except ValueError:

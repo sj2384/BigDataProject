@@ -112809,5 +112809,6 @@ NULL	188146,value
 float	4913076,dtype
 string	188146,dtype
 longitude	5101222,stype
+INVALID	226358,label
 NULL	188146,label
-VALID	4913076,label
+VALID	4686718,label

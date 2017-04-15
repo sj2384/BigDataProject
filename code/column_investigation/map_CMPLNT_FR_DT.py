@@ -9,7 +9,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 
 for entry in reader:
-    #if len(entry) == 22:
+    
     CMPLNT_FR_DT = str(entry[1])
 
     if CMPLNT_FR_DT == '' or CMPLNT_FR_DT is None:
@@ -17,10 +17,17 @@ for entry in reader:
         CMPLNT_FR_DT = 'NULL'
     else:
         try:
-            datetime.datetime.strptime(CMPLNT_FR_DT, '%m/%d/%Y')
-            label = 'VALID'
+            # define upper bound and lower bound to exclude outliers
+            dt = datetime.datetime.strptime(CMPLNT_FR_DT, '%m/%d/%Y')
+            lb = datetime.datetime.strptime('01/01/2006', '%m/%d/%Y')
+            ub = datetime.datetime.strptime('12/31/2015', '%m/%d/%Y')
+            if dt > ub or dt < lb:
+                label = 'INVALID'
+            else:
+                label = 'VALID'
         except ValueError:
             label = 'INVALID'
+            
 
 
     print('%s\t%s,date,%s' % (CMPLNT_FR_DT, get_type(CMPLNT_FR_DT), label))

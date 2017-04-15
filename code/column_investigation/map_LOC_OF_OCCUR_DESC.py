@@ -6,9 +6,11 @@ from utils import get_type
 reader = csv.reader(sys.stdin)
 # Skip first row
 next(reader, None)
+
+# All possible pre-defined values
 valid_list = ['INSIDE','OPPOSITE OF','OUTSIDE', 'REAR OF', 'FRONT OF']
 for entry in reader:
-    #if len(entry) == 22:
+
     LOC_OF_OCCUR_DESC = str(entry[15])
     if LOC_OF_OCCUR_DESC in valid_list:
         label = 'VALID'

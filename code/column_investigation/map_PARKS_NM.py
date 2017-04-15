@@ -8,7 +8,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 
 for entry in reader:
-    #if len(entry) == 22:
+
     PARKS_NM = str(entry[17])
     if PARKS_NM == '' or PARKS_NM is None or PARKS_NM == 'N/A':
         label = 'NULL'

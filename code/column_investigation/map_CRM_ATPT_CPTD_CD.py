@@ -6,9 +6,10 @@ from utils import get_type
 reader = csv.reader(sys.stdin)
 # Skip first row
 next(reader, None)
+# All possible pre-defined values
 valid_list = ['ATTEMPTED','COMPLETED']
 for entry in reader:
-    #if len(entry) == 22:
+
     CRM_ATPT_CPTD_CD = str(entry[10])
     if CRM_ATPT_CPTD_CD in valid_list:
         label = 'VALID'

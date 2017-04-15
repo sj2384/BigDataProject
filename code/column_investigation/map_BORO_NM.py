@@ -8,7 +8,7 @@ reader = csv.reader(sys.stdin)
 next(reader, None)
 valid_list = ['BRONX','BROOKLYN','MANHATTAN','QUEENS','STATEN ISLAND']
 for entry in reader:
-    #if len(entry) == 22:
+
     BORO_NM = str(entry[13])
     if BORO_NM in valid_list:
         label = 'VALID'
