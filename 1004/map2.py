@@ -13,7 +13,7 @@ for entry in data:
         if dt >upper_bound or dt < lower_bound:
             pass
         else:
-            crime_class = entry[7]
-            count =1
-            if crime_class:
+            if entry[7]:    #OFNS_DESC
+		crime_class =entry[7]
+		count =1
                 print("%s\t%s" %(crime_class, count))
