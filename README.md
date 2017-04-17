@@ -25,12 +25,15 @@ hjs \
        -output <hdfs_directory>/<task_name>.out \
        -mapper <mapper>.py \
        -reducer <reducer>.py
-       
+
+To get MapReduce output files from HDFS, you need to run:
+hfs -getmerge <hdfs_directory>/<task_name>.out <task_name>.out
+
 For spark task in folder 'top20', you need to run:
 spark-submit top20spark.py <hdfs_directory>/NYPD_Complaint_Data_Historic.csv
+To get spark output file, you need to run:
+hfs -getmerge top20.out top20.out
 
-To get output from HDFS, you need to run:
-hfs -getmerge <hdfs_directory>/<task_name>.out <task_name>.out
 
 At last, you need to pscp or scp command to ransfer output file from dumbo to your local directory.
 
