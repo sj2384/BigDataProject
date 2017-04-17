@@ -1,10 +1,10 @@
-# BigDataProject
+To generate the first table regarding details of each column. You need to run the script in ./code/column_investigation/
 
-timeline:
-March 25th: Submit group information
-April 10th: Part 1 is due
-May 1st: Part 2 and final report due
+For example, in order to get BORO_NM.out, on dumbo you run
+hjs -D mapreduce.job.reduces=1 -files <dumbo_directory> -mapper <dumbo_directory>/map_BORO_NM.py -reducer <dumbo_directory>/reduce_BORO_NM.py -input <hdfs_directory>/NYPD_Complaint_Data_Historic.csv -output <hdfs_directory>/BORO_NM.out
+Then you use getmerge  and scp command to transfer output file from hdfs and dumbo to your local directory.
 
-From 3.22 to 3.25, each of us is going to read and understand each field of the dataset. Then everyone proposes at least 10 different ways to visualize the data filed(s). These should be written in the google doc for this project.
+To generate most of graphs in the summary, you run weitao.ipynb which takes the output files from previous steps to generate graphs.
 
-We will meet this weekend to discuss which ideas to choose and split them into three parts, which will be carried out using map-reduce later next week. 
+There are also some graphs generated from different sources:
+
