@@ -44,3 +44,5 @@ hjs -D mapreduce.job.reduces=1 -files /home/wl1599/crime_analysis/column_investi
 
 hjs -D mapreduce.job.reduces=1 -files /home/wl1599/crime_analysis/column_investigation -mapper column_investigation/map_Lat_Lon.py -reducer column_investigation/reduce_Lat_Lon.py -input /user/wl1599/NYPD_Complaint_Data_Historic.csv -output /user/wl1599/Lat_Lon.out
 
+hjs -D mapreduce.job.reduces=1 -files /home/wl1599/crime_analysis/column_investigation -mapper column_investigation/map_NTA.py -reducer column_investigation/reduce_NTA.py -input /user/wl1599/NYPD_Complaint_Data_Historic.csv -output /user/wl1599/NTA.out
+
